@@ -1,0 +1,31 @@
+@import '../../styles/variables';
+
+.icon {
+  cursor: pointer;
+
+  &-logo {
+    height: 22px;
+    width: 85px;
+  }
+  &-favorites {
+    height: 20px;
+    width: 23px;
+  }
+  &-basket {
+    height: 25px;
+    width: 24px;
+  }
+  &-vk {
+    height: 21px;
+    width: 31px;
+  }
+  &-telegram,
+  &-whatsapp {
+    height: 31px;
+    width: 31px;
+  }
+  &-language{
+    height: 20px;
+    width: 20px;
+  }
+}

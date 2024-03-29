@@ -1,0 +1,10 @@
+@import '../../styles//mixins.scss';
+
+.header {
+  margin: 20px 0;
+  @include flex($justify: space-between);
+  &__icons-wrapper{
+    @include flex($justify: space-between, $align: center);
+    column-gap: 45px;
+  }
+}

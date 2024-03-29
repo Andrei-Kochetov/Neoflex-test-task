@@ -1,0 +1,19 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.socials {
+  @include flex($justify: space-between);
+  column-gap: 18px;
+
+  &-item {
+    list-style-type: none;
+  }
+
+  svg {
+    fill: black;
+    transition: fill 0.5s;
+    &:hover {
+      fill: $action;
+    }
+  }
+}
