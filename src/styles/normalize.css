@@ -16,6 +16,10 @@ h1 {
   margin: 0.67em 0;
 }
 
+h2{
+  margin: 0;
+}
+
 p {
   margin: 0;
 }
@@ -63,6 +67,7 @@ textarea {
   font-size: 100%;
   line-height: 1.15;
   margin: 0;
+
 }
 
 button,

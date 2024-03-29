@@ -1,0 +1,17 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.catalog-section {
+  margin-bottom: 20px;
+
+  &__title {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: $gray;
+  }
+  &__items-wrapper {
+    @include flex($justify: space-between, $wrap: wrap);
+    gap: 30px;
+  }
+}

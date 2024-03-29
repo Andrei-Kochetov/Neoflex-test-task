@@ -2,18 +2,11 @@
 @import '../../styles/mixins';
 
 .socials {
-  @include flex($justify: space-between);
+  @include flex($justify: space-between, $align: center);
+  height: 35px;
   column-gap: 18px;
 
   &-item {
     list-style-type: none;
-  }
-
-  svg {
-    fill: black;
-    transition: fill 0.5s;
-    &:hover {
-      fill: $action;
-    }
   }
 }
