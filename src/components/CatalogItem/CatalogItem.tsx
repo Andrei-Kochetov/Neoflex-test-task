@@ -1,6 +1,6 @@
 import './CatalogItem.scss';
 
-import { ICatalogItem } from '../../utils/interfaces';
+import { ICatalogItem } from '../../utils/types';
 import Icon from '../Icon/Icon';
 
 const CatalogItem = ({ title, price, discountPrice, rate, img }: ICatalogItem) => {

@@ -18,7 +18,14 @@ export interface ICatalogItem {
   rate: number;
   img: string;
 }
+
 export interface ICatalogSection {
   title: string;
   children: ReactNode;
 }
+
+export interface IBasketTotalSection {
+  totalBasketPrice: number;
+}
+
+export type BasketItemType = Omit<ICatalogItem, 'rate'>;

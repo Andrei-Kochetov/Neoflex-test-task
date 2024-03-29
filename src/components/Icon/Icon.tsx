@@ -1,6 +1,6 @@
 import './Icon.scss';
 
-import { IIcon } from '../../utils/interfaces';
+import { IIcon } from '../../utils/types';
 
 function Icon({ name, className = '' }: IIcon) {
   return (

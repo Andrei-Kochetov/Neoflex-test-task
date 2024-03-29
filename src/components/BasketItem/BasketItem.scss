@@ -1,0 +1,45 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.basket-item {
+  @include flex;
+  width: 600px;
+  padding: 20px;
+  margin-bottom: 15px;
+  background-color: $sectionBackgroundColor;
+  column-gap: 25px;
+  border-radius: 30px;
+  transition: scale 0.5s;
+  &:hover {
+    scale: 1.03;
+  }
+  &__img-quantity-wrapper {
+    @include flex($align: center, $direction: column);
+    row-gap: 20px;
+    img {
+      width: 140px;
+    }
+  }
+  &__quantity {
+    @include flex($align: center);
+    column-gap: 25px;
+    font-weight: bold;
+  }
+  &__description {
+    @include flex($direction: column, $justify: space-between);
+    flex-grow: 1;
+  }
+
+  &__delete-button,
+  &__final-price {
+    align-self: flex-end;
+  }
+
+  &__title {
+    margin-bottom: 12px;
+  }
+  &__old-price {
+    font-size: 15px;
+    color: gray;
+  }
+}

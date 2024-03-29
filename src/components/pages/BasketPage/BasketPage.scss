@@ -1,0 +1,10 @@
+@import '../../../styles/mixins';
+
+.basket-page {
+  &__title {
+    margin-bottom: 15px;
+  }
+  &__section-items {
+    @include flex($justify: space-between);
+  }
+}

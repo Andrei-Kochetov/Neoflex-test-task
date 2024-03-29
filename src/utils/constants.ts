@@ -1,4 +1,4 @@
-import { ICatalogItem, ISocialItem } from './interfaces';
+import { ICatalogItem, ISocialItem } from './types';
 
 export const SOCIALS: ISocialItem[] = [
   {

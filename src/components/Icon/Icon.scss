@@ -1,7 +1,7 @@
 @import '../../styles/variables';
 
 .icon {
-  transition: fill 0.5s;
+  transition: all 0.5s;
 
   &-logo {
     height: 22px;
@@ -36,7 +36,7 @@
   &-vk,
   &-telegram,
   &-whatsapp {
-    fill: $socialIcon;
+    fill: $black;
     &:hover {
       fill: $action;
     }
@@ -46,8 +46,28 @@
     height: 20px;
     width: 20px;
   }
-  &-star{
+  &-star {
     height: 23px;
     width: 25px;
+  }
+  &-plus,
+  &-minus {
+    height: 30px;
+    width: 30px;
+    fill: $yellow;
+    cursor: pointer;
+    &:hover {
+      fill: $action;
+      scale: 1.1;
+    }
+  }
+  &-delete{
+    height: 17px;
+    width: 21px;
+    cursor: pointer;
+    fill: $red;
+    &:hover {
+      fill: $action;
+    }
   }
 }
