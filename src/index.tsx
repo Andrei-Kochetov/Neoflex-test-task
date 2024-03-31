@@ -9,11 +9,11 @@ import { BasketProvider } from './contexts/BasketProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <BasketProvider>
-        <App />
-      </BasketProvider>
-    </BrowserRouter>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <BrowserRouter>
+    <BasketProvider>
+      <App />
+    </BasketProvider>
+  </BrowserRouter>,
+  // </React.StrictMode>,
 );

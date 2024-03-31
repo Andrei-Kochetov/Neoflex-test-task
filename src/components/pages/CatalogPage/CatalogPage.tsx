@@ -7,13 +7,13 @@ const CatalogPage = () => {
   return (
     <>
       <CatalogSection title="Наушники">
-        {WIRED_HEADPHONES.map((item, index) => {
-          return <CatalogItem {...item} key={index} />;
+        {WIRED_HEADPHONES.map((item) => {
+          return <CatalogItem {...item} key={item.id} />;
         })}
       </CatalogSection>
       <CatalogSection title="Беспроводные наушники">
-        {WIRELESS_HEADPHONES.map((item, index) => {
-          return <CatalogItem {...item} key={index} />;
+        {WIRELESS_HEADPHONES.map((item) => {
+          return <CatalogItem {...item} key={item.id} />;
         })}
       </CatalogSection>
     </>

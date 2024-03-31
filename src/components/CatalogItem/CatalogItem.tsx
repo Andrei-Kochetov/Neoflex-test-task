@@ -1,8 +1,10 @@
 import './CatalogItem.scss';
 
+import { useMemo } from 'react';
+
 import { ICatalogItem } from '../../utils/interfaces';
 import Icon from '../Icon/Icon';
-import { useBasketContext } from '../../hooks/useBasketContext';
+import useBasketContext from '../../hooks/useBasketContext';
 
 const CatalogItem = ({ title, price, discountPrice, rate, img, id }: ICatalogItem) => {
   const finalPrice = discountPrice || price;
@@ -10,7 +12,9 @@ const CatalogItem = ({ title, price, discountPrice, rate, img, id }: ICatalogIte
 
   const { addItemToBasket, basketItems } = useBasketContext();
 
-  const isItemInBasket = basketItems.some((basketItem) => basketItem.id === id);
+  const isItemInBasket = useMemo(() => {
+    return basketItems.some((basketItem) => basketItem.id === id);
+  }, [basketItems, id]);
 
   const handleClick = () => {
     const itemToAddToBasket = {

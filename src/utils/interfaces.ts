@@ -39,3 +39,7 @@ export interface IBasketContext {
   updateQuantity: (itemId: number, newQuantity: number) => void;
   removeItemFromBasket: (itemId: number) => void;
 }
+
+export interface IBasketItemProps
+  extends IBasketItem,
+    Pick<IBasketContext, 'updateQuantity' | 'removeItemFromBasket'> {}

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { BasketContext } from '../contexts/BasketProvider';
 
-export const useBasketContext = () => {
+const useBasketContext = () => {
   const context = useContext(BasketContext);
   if (!context) {
     throw new Error(
@@ -10,3 +10,5 @@ export const useBasketContext = () => {
   }
   return context;
 };
+
+export default useBasketContext;

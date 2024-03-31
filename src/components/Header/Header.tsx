@@ -2,7 +2,7 @@ import './Header.scss';
 
 import { Link } from 'react-router-dom';
 import Icon from '../Icon/Icon';
-import { useBasketContext } from '../../hooks/useBasketContext';
+import useBasketContext from '../../hooks/useBasketContext';
 import Logo from '../Logo/Logo';
 
 const Header = () => {

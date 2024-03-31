@@ -1,56 +1,73 @@
+import { memo } from 'react';
+import { IBasketItemProps } from '../../utils/interfaces';
+import Icon from '../Icon/Icon';
 import './BasketItem.scss';
 
-import { memo } from 'react';
-import Icon from '../Icon/Icon';
-import { IBasketItem } from '../../utils/interfaces';
-import { useBasketContext } from '../../hooks/useBasketContext';
+const BasketItem = memo(
+  ({
+    title,
+    price,
+    discountPrice,
+    img,
+    quantity,
+    id,
+    updateQuantity,
+    removeItemFromBasket,
+  }: IBasketItemProps) => {
+    const finalPrice = discountPrice || price;
 
-const BasketItem = memo(({ title, price, discountPrice, img, quantity, id }: IBasketItem) => {
-  const { removeItemFromBasket, updateQuantity } = useBasketContext();
+    const deleteItemHandleClick = () => removeItemFromBasket(id);
 
-  const finalPrice = discountPrice || price;
+    const decreaseQuantityHandleClick = () => {
+      if (quantity > 1) updateQuantity(id, quantity - 1);
+    };
 
-  const deleteItemHandleClick = () => removeItemFromBasket(id);
+    const increaseQuantityHandleClick = () => {
+      if (quantity < 99) updateQuantity(id, quantity + 1);
+    };
 
-  const decreaseQuantityHandleClick = () => {
-    if (quantity > 1) updateQuantity(id, quantity - 1);
-  };
+    console.log('basket item render');
 
-  const increaseQuantityHandleClick = () => {
-    if (quantity < 99) updateQuantity(id, quantity + 1);
-  };
-
-  return (
-    <div className="basket-item">
-      <div className="basket-item__img-quantity-wrapper">
-        <img src={img} alt="basket item" />
-        <div className="basket-item__quantity">
-          <button type="button" onClick={decreaseQuantityHandleClick}>
-            <Icon name="minus" />
+    return (
+      <div className="basket-item">
+        <div className="basket-item__img-quantity-wrapper">
+          <img src={img} alt="basket item" />
+          <div className="basket-item__quantity">
+            <button type="button" onClick={decreaseQuantityHandleClick}>
+              <Icon name="minus" />
+            </button>
+            {quantity}
+            <button type="button" onClick={increaseQuantityHandleClick}>
+              <Icon name="plus" />
+            </button>
+          </div>
+        </div>
+        <div className="basket-item__description">
+          <button
+            className="basket-item__delete-button"
+            type="button"
+            onClick={deleteItemHandleClick}
+          >
+            <Icon name="delete" />
           </button>
-          {quantity}
-          <button type="button" onClick={increaseQuantityHandleClick}>
-            <Icon name="plus" />
-          </button>
+          <div className="basket-item__title-price-wrapper">
+            <p className="basket-item__title">{title}</p>
+            <p className="basket-item__price">{`${price} ₽`}</p>
+          </div>
+          <p className="basket-item__final-price">{`${finalPrice * quantity} ₽`}</p>
         </div>
       </div>
-
-      <div className="basket-item__description">
-        <button
-          className="basket-item__delete-button"
-          type="button"
-          onClick={deleteItemHandleClick}
-        >
-          <Icon name="delete" />
-        </button>
-        <div className="basket-item__title-old-price-wrapper">
-          <p className="basket-item__title">{title}</p>
-          <p className="basket-item__old-price">{`${price} ₽`}</p>
-        </div>
-        <p className="basket-item__final-price">{`${finalPrice} ₽`}</p>
-      </div>
-    </div>
-  );
-});
+    );
+  },
+  (prevProps, nextProps) => {
+    return (
+      prevProps.quantity === nextProps.quantity &&
+      prevProps.title === nextProps.title &&
+      prevProps.price === nextProps.price &&
+      prevProps.discountPrice === nextProps.discountPrice &&
+      prevProps.id === nextProps.id
+    );
+  },
+);
 
 export default BasketItem;

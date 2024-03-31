@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useMemo } from 'react';
+import { createContext, useState, useEffect, useMemo, useCallback } from 'react';
 
 import { IBasketContext, IBasketItem, IBasketProvider } from '../utils/interfaces';
 
@@ -17,29 +17,44 @@ export const BasketProvider = ({ children }: IBasketProvider) => {
     if (storageItems.length) setBasketItems(storageItems);
   }, []);
 
-  const addItemToBasket = (item: IBasketItem) => {
-    const IsThisItemInBasket = basketItems.some((basketItem) => basketItem.id === item.id);
+  const addItemToBasket = useCallback((item: IBasketItem) => {
+    setBasketItems((prevBasketItems) => {
+      const isItemInBasket = prevBasketItems.some((basketItem) => basketItem.id === item.id);
 
-    if (IsThisItemInBasket) return;
+      if (isItemInBasket) return prevBasketItems;
 
-    const newBasketItems = [...basketItems, { ...item, quantity: 1 }];
-    setBasketItems(newBasketItems);
-    sessionStorage.setItem('basketItems', JSON.stringify(newBasketItems));
-  };
+      const newBasketItems = [...prevBasketItems, { ...item, quantity: 1 }];
 
-  const updateQuantity = (itemId: number, newQuantity: number) => {
-    const updatedItems = basketItems.map((basketItem) =>
-      basketItem.id === itemId ? { ...basketItem, quantity: newQuantity } : basketItem,
-    );
-    setBasketItems(updatedItems);
-    sessionStorage.setItem('basketItems', JSON.stringify(updatedItems));
-  };
+      sessionStorage.setItem('basketItems', JSON.stringify(newBasketItems));
 
-  const removeItemFromBasket = (itemId: number) => {
-    const updatedItems = basketItems.filter((basketItem) => basketItem.id !== itemId);
-    setBasketItems(updatedItems);
-    sessionStorage.setItem('basketItems', JSON.stringify(updatedItems));
-  };
+      return newBasketItems;
+    });
+  }, []);
+
+  const updateQuantity = useCallback((itemId: number, newQuantity: number) => {
+    setBasketItems((prevBasketItems) => {
+      const updatedBasketItems = prevBasketItems.map((basketItem) =>
+        basketItem.id === itemId ? { ...basketItem, quantity: newQuantity } : basketItem,
+      );
+
+      sessionStorage.setItem('basketItems', JSON.stringify(updatedBasketItems));
+
+      return updatedBasketItems;
+    });
+  }, []);
+
+  const removeItemFromBasket = useCallback(
+    (itemId: number) => {
+      setBasketItems((prevBasketItems) => {
+        const updatedItems = prevBasketItems.filter((basketItem) => basketItem.id !== itemId);
+
+        sessionStorage.setItem('basketItems', JSON.stringify(updatedItems));
+
+        return updatedItems;
+      });
+    },
+    [],
+  );
 
   const contextValue = useMemo(
     () => ({

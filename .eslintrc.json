@@ -13,11 +13,8 @@
     "react/react-in-jsx-scope": "off",
     "react/function-component-definition": "off",
     "react/jsx-props-no-spreading": "off",
-    "react/no-array-index-key": "off",
     "import/extensions": "off",
     "import/no-unresolved": "off",
-    "import/prefer-default-export": "off",
-    "@typescript-eslint/no-empty-function": "off",
-    "react-hooks/exhaustive-deps": "off"
+    "@typescript-eslint/no-empty-function": "off"
   }
 }
