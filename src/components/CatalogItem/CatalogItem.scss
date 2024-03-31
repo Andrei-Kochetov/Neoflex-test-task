@@ -76,6 +76,7 @@
     font-weight: bold;
     cursor: pointer;
     transition: color 0.5s;
+    color: $primaryFontColor;
     &:hover {
       color: $action;
     }

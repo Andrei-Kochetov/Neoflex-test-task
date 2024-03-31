@@ -4,10 +4,16 @@
 .header {
   margin: 15px 0 40px;
   @include flex($justify: space-between);
+  @include breakpoint-xs {
+    margin: 15px 0;
+  }
   &__icons-wrapper {
     @include flex($justify: space-between, $align: center);
     column-gap: 45px;
     position: relative;
+    @include breakpoint-xs {
+      margin-right: 5px;
+    }
   }
   &__basket-count {
     background-color: $action;
