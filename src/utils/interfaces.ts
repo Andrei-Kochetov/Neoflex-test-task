@@ -17,6 +17,7 @@ export interface ICatalogItem {
   discountPrice?: number;
   rate: number;
   img: string;
+  id: number;
 }
 
 export interface ICatalogSection {
@@ -28,4 +29,18 @@ export interface IBasketTotalSection {
   totalBasketPrice: number;
 }
 
-export type BasketItemType = Omit<ICatalogItem, 'rate'>;
+export interface IBasketItem extends Omit<ICatalogItem, 'rate'> {
+  quantity: number;
+}
+
+export interface IBasketProvider {
+  children: ReactNode;
+}
+
+export interface IBasketContext {
+  basketItems: IBasketItem[];
+  addItemToBasket: (item: IBasketItem) => void;
+  updateQuantity: (itemId: number, newQuantity: number) => void;
+  removeItemFromBasket: (itemId: number) => void;
+  totalCost: number;
+}

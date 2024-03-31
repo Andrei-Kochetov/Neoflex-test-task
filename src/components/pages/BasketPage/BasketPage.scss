@@ -6,5 +6,18 @@
   }
   &__section-items {
     @include flex($justify: space-between);
+    @include breakpoint-md {
+      column-gap: 10px;
+    }
+    @include breakpoint-xs {
+      flex-direction: column;
+    }
+  }
+  &__items-wrapper {
+    width: 600px;
+    min-width: 310px;
+    @include breakpoint-xs {
+      width: 100%;
+    }
   }
 }

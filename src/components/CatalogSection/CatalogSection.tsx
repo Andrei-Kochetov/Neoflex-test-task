@@ -1,6 +1,6 @@
 import './CatalogSection.scss';
 
-import { ICatalogSection } from '../../utils/types';
+import { ICatalogSection } from '../../utils/interfaces';
 
 const CatalogSection = ({ title, children }: ICatalogSection) => {
   return (

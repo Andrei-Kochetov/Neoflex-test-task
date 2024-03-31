@@ -1,6 +1,6 @@
 import './BasketTotalSection.scss';
 
-import { IBasketTotalSection } from '../../utils/types';
+import { IBasketTotalSection } from '../../utils/interfaces';
 
 const BasketTotalSection = ({ totalBasketPrice }: IBasketTotalSection) => {
   return (

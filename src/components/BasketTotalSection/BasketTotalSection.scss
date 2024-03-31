@@ -4,10 +4,15 @@
 .basket-total-section {
   @include flex($direction: column, $justify: space-between);
   width: 350px;
+  min-width: 200px;
   height: 120px;
   background-color: $sectionBackgroundColor;
   column-gap: 25px;
   border-radius: 30px;
+  @include breakpoint-xs {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 
   &__price {
     margin: 22px 22px 0 22px;

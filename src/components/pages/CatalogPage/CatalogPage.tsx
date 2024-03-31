@@ -7,7 +7,7 @@ const CatalogPage = () => {
   return (
     <>
       <CatalogSection title="Наушники">
-        {WIRED_HEADPHONES.concat(WIRED_HEADPHONES).map((item, index) => {
+        {WIRED_HEADPHONES.map((item, index) => {
           return <CatalogItem {...item} key={index} />;
         })}
       </CatalogSection>

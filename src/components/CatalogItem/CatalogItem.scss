@@ -3,12 +3,35 @@
 
 .catalog-item {
   @include flex($direction: column, $justify: space-between, $align: center);
-  padding: 33px 22px;
+  padding: 33px 20px;
   height: 380px;
   width: 330px;
+  min-width: 200px;
   background-color: $sectionBackgroundColor;
   border-radius: 30px;
   transition: scale 0.5s;
+
+  @include breakpoint-lg {
+    justify-self: end;
+    &:nth-child(even) {
+      justify-self: start;
+    }
+  }
+  @include breakpoint-xs {
+    justify-self: center;
+    &:nth-child(even) {
+      justify-self: center;
+    }
+  }
+
+  @include breakpoint-lg {
+    padding: 20px 25px;
+  }
+
+  @include breakpoint-sm {
+    height: 270px;
+    width: 210px;
+  }
 
   &:hover {
     scale: 1.03;
@@ -16,6 +39,9 @@
 
   img {
     max-width: 220px;
+    @include breakpoint-sm {
+      max-width: 170px;
+    }
   }
 
   &__description {
@@ -46,14 +72,17 @@
   }
 
   &__button {
-    background-color: transparent;
-    border: none;
     padding: 5px 0px;
     font-weight: bold;
     cursor: pointer;
     transition: color 0.5s;
     &:hover {
       color: $action;
+    }
+    //TODO пофиксить изменение цвета при дизабл
+    &[disabled]:hover {
+      cursor: default;
+      color: rgba(16, 16, 16, 0.3);
     }
   }
 }

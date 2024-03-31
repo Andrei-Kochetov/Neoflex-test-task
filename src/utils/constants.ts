@@ -1,4 +1,4 @@
-import { ICatalogItem, ISocialItem } from './types';
+import { ICatalogItem, ISocialItem } from './interfaces';
 
 export const SOCIALS: ISocialItem[] = [
   {
@@ -22,18 +22,43 @@ export const WIRED_HEADPHONES: ICatalogItem[] = [
     discountPrice: 2927,
     rate: 4.7,
     img: `${process.env.PUBLIC_URL}/images/appleS852I.png`,
+    id: 1,
   },
   {
     title: 'Apple EarPods',
     price: 2327,
     rate: 4.5,
     img: `${process.env.PUBLIC_URL}/images/earpods1.png`,
+    id: 2,
   },
   {
     title: 'Apple EarPods',
     price: 2327,
     rate: 4.5,
     img: `${process.env.PUBLIC_URL}/images/earpods2.png`,
+    id: 13,
+  },
+  {
+    title: 'Apple BYZ S852I',
+    price: 3527,
+    discountPrice: 2927,
+    rate: 4.7,
+    img: `${process.env.PUBLIC_URL}/images/appleS852I.png`,
+    id: 4,
+  },
+  {
+    title: 'Apple EarPods',
+    price: 2327,
+    rate: 4.5,
+    img: `${process.env.PUBLIC_URL}/images/earpods1.png`,
+    id: 5,
+  },
+  {
+    title: 'Apple EarPods',
+    price: 2327,
+    rate: 4.5,
+    img: `${process.env.PUBLIC_URL}/images/earpods2.png`,
+    id: 6,
   },
 ];
 
@@ -43,17 +68,20 @@ export const WIRELESS_HEADPHONES: ICatalogItem[] = [
     price: 9527,
     rate: 4.7,
     img: `${process.env.PUBLIC_URL}/images/airpods.png`,
+    id: 7,
   },
   {
     title: 'GERLAX GH-04',
     price: 6527,
     rate: 4.7,
     img: `${process.env.PUBLIC_URL}/images/gerlaxGH-04.png`,
+    id: 8,
   },
   {
     title: 'BOROFONE BO4',
     price: 7527,
     rate: 4.7,
     img: `${process.env.PUBLIC_URL}/images/borofoneB04.png`,
+    id: 9,
   },
 ];

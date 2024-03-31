@@ -3,26 +3,41 @@
 
 .basket-item {
   @include flex;
-  width: 600px;
   padding: 20px;
   margin-bottom: 15px;
   background-color: $sectionBackgroundColor;
   column-gap: 25px;
   border-radius: 30px;
   transition: scale 0.5s;
+  @include breakpoint-sm {
+    column-gap: 5px;
+  }
+
+  @include breakpoint-xs {
+    margin-bottom: 10px;
+    padding: 15px;
+  }
+
   &:hover {
     scale: 1.03;
   }
+
   &__img-quantity-wrapper {
     @include flex($align: center, $direction: column);
     row-gap: 20px;
+    @include breakpoint-sm {
+      row-gap: 10px;
+    }
     img {
-      width: 140px;
+      max-width: 140px;
+      @include breakpoint-sm {
+        max-width: 120px;
+      }
     }
   }
   &__quantity {
-    @include flex($align: center);
-    column-gap: 25px;
+    @include flex($justify: space-between, $align: center);
+    width: 140px;
     font-weight: bold;
   }
   &__description {
@@ -30,8 +45,8 @@
     flex-grow: 1;
   }
 
-  &__delete-button,
-  &__final-price {
+  &__final-price,
+  &__delete-button {
     align-self: flex-end;
   }
 
