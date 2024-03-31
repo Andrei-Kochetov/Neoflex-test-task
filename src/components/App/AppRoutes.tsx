@@ -11,9 +11,6 @@ function AppRoutes() {
       <Routes>
         <Route path="/" element={<CatalogPage />} />
         <Route path="/basket" element={<BasketPage />} />
-        {/* <Route path="/favorites" element={<NewsPage />}></Route>
-        <Route path="/news" element={<NewsPage />}></Route>
-        <Route path="/news/:id" element={<NewsSinglePage />}></Route> */}
       </Routes>
     </main>
   );

@@ -9,6 +9,7 @@
   column-gap: 25px;
   border-radius: 30px;
   transition: scale 0.5s;
+
   @include breakpoint-sm {
     column-gap: 5px;
   }
@@ -35,11 +36,13 @@
       }
     }
   }
+
   &__quantity {
     @include flex($justify: space-between, $align: center);
     width: 140px;
     font-weight: bold;
   }
+  
   &__description {
     @include flex($direction: column, $justify: space-between);
     flex-grow: 1;

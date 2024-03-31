@@ -25,10 +25,6 @@ export interface ICatalogSection {
   children: ReactNode;
 }
 
-export interface IBasketTotalSection {
-  totalBasketPrice: number;
-}
-
 export interface IBasketItem extends Omit<ICatalogItem, 'rate'> {
   quantity: number;
 }
@@ -42,5 +38,4 @@ export interface IBasketContext {
   addItemToBasket: (item: IBasketItem) => void;
   updateQuantity: (itemId: number, newQuantity: number) => void;
   removeItemFromBasket: (itemId: number) => void;
-  totalCost: number;
 }

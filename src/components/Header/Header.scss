@@ -2,14 +2,15 @@
 @import '../../styles//variables.scss';
 
 .header {
-  margin: 15px 0 40px;
   @include flex($justify: space-between);
+  margin: 15px 0 40px;
   @include breakpoint-xs {
     margin: 15px 0;
   }
   &__icons-wrapper {
     @include flex($justify: space-between, $align: center);
-    column-gap: 45px;
+    padding-right: 10px;
+    column-gap: 30px;
     position: relative;
     @include breakpoint-xs {
       margin-right: 5px;

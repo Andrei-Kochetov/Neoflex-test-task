@@ -5,18 +5,22 @@ import BasketTotalSection from '../../BasketTotalSection/BasketTotalSection';
 import { useBasketContext } from '../../../hooks/useBasketContext';
 
 const BasketPage = () => {
-  const { basketItems, totalCost } = useBasketContext();
+  const { basketItems } = useBasketContext();
 
   return (
     <div className="basket-page">
       <h2 className="basket-page__title">Корзина</h2>
       <section className="basket-page__section-items">
         <div className="basket-page__items-wrapper">
-          {basketItems.map((item) => {
-            return <BasketItem {...item} key={item.id} />;
-          })}
+          {basketItems.length > 0 ? (
+            basketItems.map((item) => {
+              return <BasketItem {...item} key={item.id} />;
+            })
+          ) : (
+            <h3 className="basket-page__empty-message">Вы еще не выбрали товары...</h3>
+          )}
         </div>
-        <BasketTotalSection totalBasketPrice={totalCost} />
+        <BasketTotalSection />
       </section>
     </div>
   );

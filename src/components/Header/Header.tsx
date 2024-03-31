@@ -3,14 +3,13 @@ import './Header.scss';
 import { Link } from 'react-router-dom';
 import Icon from '../Icon/Icon';
 import { useBasketContext } from '../../hooks/useBasketContext';
+import Logo from '../Logo/Logo';
 
 const Header = () => {
   const { basketItems } = useBasketContext();
   return (
-    <div className="header container">
-      <Link to="/">
-        <Icon name="logo" />
-      </Link>
+    <div className="header">
+      <Logo />
       <div className="header__icons-wrapper">
         <Link to="/favorites">
           <Icon name="favorites" />

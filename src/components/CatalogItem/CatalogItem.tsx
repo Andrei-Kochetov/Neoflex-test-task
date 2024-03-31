@@ -6,6 +6,7 @@ import { useBasketContext } from '../../hooks/useBasketContext';
 
 const CatalogItem = ({ title, price, discountPrice, rate, img, id }: ICatalogItem) => {
   const finalPrice = discountPrice || price;
+  const oldPrice = discountPrice ? `${price} ₽` : '';
 
   const { addItemToBasket, basketItems } = useBasketContext();
 
@@ -35,7 +36,11 @@ const CatalogItem = ({ title, price, discountPrice, rate, img, id }: ICatalogIte
           </div>
         </div>
         <div className="catalog-item__price-buy-wrapper">
-          <p className="catalog-item__price">{`${finalPrice} 	₽`}</p>
+          <div className="catalog-item__price-wrapper">
+            <p className="catalog-item__price">{`${finalPrice} ₽`}</p>
+            <p className="catalog-item__old-price">{oldPrice}</p>
+          </div>
+
           <button
             className="catalog-item__button"
             type="button"

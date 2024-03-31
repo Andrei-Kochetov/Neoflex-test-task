@@ -12,25 +12,28 @@
   transition: scale 0.5s;
 
   @include breakpoint-lg {
+    padding: 20px 25px;
     justify-self: end;
     &:nth-child(even) {
       justify-self: start;
     }
   }
-  @include breakpoint-xs {
-    justify-self: center;
-    &:nth-child(even) {
-      justify-self: center;
-    }
-  }
 
-  @include breakpoint-lg {
-    padding: 20px 25px;
+  @include breakpoint-md {
+    height: 330px;
+    width: 280px;
   }
 
   @include breakpoint-sm {
     height: 270px;
     width: 210px;
+  }
+
+  @include breakpoint-xs {
+    justify-self: center;
+    &:nth-child(even) {
+      justify-self: center;
+    }
   }
 
   &:hover {
@@ -71,6 +74,13 @@
     color: $action;
   }
 
+  &__old-price {
+    font-size: 0.9em;
+    color: $yellow;
+    text-decoration: line-through;
+    text-align: end;
+  }
+
   &__button {
     padding: 5px 0px;
     font-weight: bold;
@@ -80,10 +90,11 @@
     &:hover {
       color: $action;
     }
-    //TODO пофиксить изменение цвета при дизабл
-    &[disabled]:hover {
-      cursor: default;
+    &[disabled] {
       color: rgba(16, 16, 16, 0.3);
+      &:hover {
+        cursor: default;
+      }
     }
   }
 }

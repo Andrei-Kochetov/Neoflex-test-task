@@ -1,22 +1,19 @@
 import './BasketItem.scss';
 
+import { memo } from 'react';
 import Icon from '../Icon/Icon';
 import { IBasketItem } from '../../utils/interfaces';
 import { useBasketContext } from '../../hooks/useBasketContext';
 
-const BasketItem = ({ title, price, discountPrice, img, quantity, id }: IBasketItem) => {
-  const finalPrice = discountPrice || price;
-
+const BasketItem = memo(({ title, price, discountPrice, img, quantity, id }: IBasketItem) => {
   const { removeItemFromBasket, updateQuantity } = useBasketContext();
 
-  const deleteItemHandleClick = () => {
-    removeItemFromBasket(id);
-  };
+  const finalPrice = discountPrice || price;
+
+  const deleteItemHandleClick = () => removeItemFromBasket(id);
 
   const decreaseQuantityHandleClick = () => {
-    if (quantity > 1) {
-      updateQuantity(id, quantity - 1);
-    }
+    if (quantity > 1) updateQuantity(id, quantity - 1);
   };
 
   const increaseQuantityHandleClick = () => {
@@ -48,12 +45,12 @@ const BasketItem = ({ title, price, discountPrice, img, quantity, id }: IBasketI
         </button>
         <div className="basket-item__title-old-price-wrapper">
           <p className="basket-item__title">{title}</p>
-          <p className="basket-item__old-price">{`${finalPrice} 	₽`}</p>
+          <p className="basket-item__old-price">{`${price} ₽`}</p>
         </div>
-        <p className="basket-item__final-price">{`${finalPrice} 	₽`}</p>
+        <p className="basket-item__final-price">{`${finalPrice} ₽`}</p>
       </div>
     </div>
   );
-};
+});
 
 export default BasketItem;

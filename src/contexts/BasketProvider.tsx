@@ -7,25 +7,15 @@ export const BasketContext = createContext<IBasketContext>({
   addItemToBasket: () => {},
   updateQuantity: () => {},
   removeItemFromBasket: () => {},
-  totalCost: 0,
 });
 
 export const BasketProvider = ({ children }: IBasketProvider) => {
   const [basketItems, setBasketItems] = useState<IBasketItem[]>([]);
-  const [totalCost, setTotalCost] = useState<number>(0);
 
   useEffect(() => {
     const storageItems = JSON.parse(sessionStorage.getItem('basketItems') || '[]');
-    setBasketItems(storageItems);
+    if (storageItems.length) setBasketItems(storageItems);
   }, []);
-
-  useEffect(() => {
-    const newTotalCost = basketItems.reduce((accumulator, currentItem) => {
-      const finalPrice = currentItem.discountPrice ? currentItem.discountPrice : currentItem.price;
-      return accumulator + finalPrice * currentItem.quantity;
-    }, 0);
-    setTotalCost(newTotalCost);
-  }, [basketItems]);
 
   const addItemToBasket = (item: IBasketItem) => {
     const IsThisItemInBasket = basketItems.some((basketItem) => basketItem.id === item.id);
@@ -57,7 +47,6 @@ export const BasketProvider = ({ children }: IBasketProvider) => {
       addItemToBasket,
       updateQuantity,
       removeItemFromBasket,
-      totalCost,
     }),
     [basketItems, addItemToBasket, updateQuantity, removeItemFromBasket],
   );

@@ -9,7 +9,11 @@
   background-color: $sectionBackgroundColor;
   column-gap: 25px;
   border-radius: 30px;
+  position: sticky;
+  top: 20px;
   @include breakpoint-xs {
+    position: relative;
+    top: 0;
     width: 100%;
     margin-bottom: 10px;
   }

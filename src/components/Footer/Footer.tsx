@@ -4,13 +4,12 @@ import { Link } from 'react-router-dom';
 
 import Icon from '../Icon/Icon';
 import Socials from '../Socials/Socials';
+import Logo from '../Logo/Logo';
 
 function Footer() {
   return (
     <div className="footer container">
-      <Link to="/">
-        <Icon name="logo" />
-      </Link>
+      <Logo />
       <div className="footer__links-wrapper">
         <Link to="/favorites" className="footer__link">
           Избранное
@@ -32,11 +31,6 @@ function Footer() {
           <p>Eng</p>
         </div>
       </div>
-      {/* <div className="footer__socials-wrapper">
-        <Icon name="vk" />
-        <Icon name="telegram" />
-        <Icon name="whatsapp" />
-      </div> */}
       <Socials />
     </div>
   );
