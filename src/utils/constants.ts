@@ -36,7 +36,7 @@ export const WIRED_HEADPHONES: ICatalogItem[] = [
     price: 2327,
     rate: 4.5,
     img: `${process.env.PUBLIC_URL}/images/earpods2.png`,
-    id: 13,
+    id: 3,
   },
   {
     title: 'Apple BYZ S852I',
