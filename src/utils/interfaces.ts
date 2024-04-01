@@ -43,3 +43,11 @@ export interface IBasketContext {
 export interface IBasketItemProps
   extends IBasketItem,
     Pick<IBasketContext, 'updateQuantity' | 'removeItemFromBasket'> {}
+
+export interface ICatalogItemProps extends ICatalogItem, Pick<IBasketContext, 'addItemToBasket'> {
+  isItemInBasket: boolean;
+}
+
+export interface IBasketItemsIdObject {
+  [itemId: number]: boolean;
+}

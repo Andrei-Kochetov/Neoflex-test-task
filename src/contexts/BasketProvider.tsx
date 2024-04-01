@@ -43,18 +43,15 @@ export const BasketProvider = ({ children }: IBasketProvider) => {
     });
   }, []);
 
-  const removeItemFromBasket = useCallback(
-    (itemId: number) => {
-      setBasketItems((prevBasketItems) => {
-        const updatedItems = prevBasketItems.filter((basketItem) => basketItem.id !== itemId);
+  const removeItemFromBasket = useCallback((itemId: number) => {
+    setBasketItems((prevBasketItems) => {
+      const updatedItems = prevBasketItems.filter((basketItem) => basketItem.id !== itemId);
 
-        sessionStorage.setItem('basketItems', JSON.stringify(updatedItems));
+      sessionStorage.setItem('basketItems', JSON.stringify(updatedItems));
 
-        return updatedItems;
-      });
-    },
-    [],
-  );
+      return updatedItems;
+    });
+  }, []);
 
   const contextValue = useMemo(
     () => ({

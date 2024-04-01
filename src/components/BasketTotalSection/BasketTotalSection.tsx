@@ -5,7 +5,6 @@ import useBasketContext from '../../hooks/useBasketContext';
 
 const BasketTotalSection = () => {
   const { basketItems } = useBasketContext();
-  console.log('total render');
 
   const totalCost = useMemo(() => {
     return basketItems.reduce((accumulator, currentItem) => {

@@ -26,8 +26,6 @@ const BasketItem = memo(
       if (quantity < 99) updateQuantity(id, quantity + 1);
     };
 
-    console.log('basket item render');
-
     return (
       <div className="basket-item">
         <div className="basket-item__img-quantity-wrapper">
@@ -57,15 +55,6 @@ const BasketItem = memo(
           <p className="basket-item__final-price">{`${finalPrice * quantity} ₽`}</p>
         </div>
       </div>
-    );
-  },
-  (prevProps, nextProps) => {
-    return (
-      prevProps.quantity === nextProps.quantity &&
-      prevProps.title === nextProps.title &&
-      prevProps.price === nextProps.price &&
-      prevProps.discountPrice === nextProps.discountPrice &&
-      prevProps.id === nextProps.id
     );
   },
 );

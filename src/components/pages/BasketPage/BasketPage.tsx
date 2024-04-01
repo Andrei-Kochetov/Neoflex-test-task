@@ -6,7 +6,6 @@ import useBasketContext from '../../../hooks/useBasketContext';
 
 const BasketPage = () => {
   const { basketItems, updateQuantity, removeItemFromBasket } = useBasketContext();
-  console.log('basket page');
 
   return (
     <div className="basket-page">
