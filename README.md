@@ -1,3 +1,5 @@
+## [Deploy](https://main--neoflex-test-task-2024.netlify.app/)
+
 ## Setting Up and Running the Project
 
 1. **Install Node.js**: Make sure Node.js is installed on your computer. You can download it from the [official Node.js website](https://nodejs.org/).
